@@ -25,7 +25,7 @@ In this project we train a MultilayerPerceptron Classifier with a single hidden 
 
 Loss vs number of trainings iteration
 ```
-![Plot for MLP - Loss vs. number of trainings interation](/loss_vs_nbr_iter_00001.png)
+![Plot for MLP - Loss vs. number of trainings interation](plots/loss_vs_nbr_iter_00001.png)
 ```
 
 **Best parameters:**
