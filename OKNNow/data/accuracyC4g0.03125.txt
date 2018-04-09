@@ -1,0 +1,228 @@
+"C:\Program Files\Java\jdk1.8.0_91\bin\java" -Xmx4096m "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.3.4\lib\idea_rt.jar=52918:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2017.3.4\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_91\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_91\jre\lib\rt.jar;C:\Users\Seba\PR\OKNNow\out\production\PRToolkit;C:\Users\Seba\PR\OKNNow\lib\libsvm-3.22\java\libsvm.jar;C:\Users\Seba\PR\OKNNow\lib\javaml-0.1.7\javaml-0.1.7.jar" pr.Main
+*
+optimization finished, #iter = 646
+nu = 0.0034090232364807353
+obj = -38.385999057122234, rho = 0.5911686562822626
+nSV = 379, nBSV = 0
+*
+optimization finished, #iter = 793
+nu = 0.00638705562262949
+obj = -72.55192295665657, rho = 0.4205288027221393
+nSV = 392, nBSV = 1
+.*
+optimization finished, #iter = 1033
+nu = 0.011633567532083463
+obj = -140.27783893270748, rho = 0.497692854709496
+nSV = 412, nBSV = 12
+*
+optimization finished, #iter = 965
+nu = 0.0077782411653718265
+obj = -90.39579697345161, rho = 0.7586685125942736
+nSV = 489, nBSV = 0
+.*
+optimization finished, #iter = 1016
+nu = 0.0070943837361534205
+obj = -77.1855428634672, rho = 0.7335338592489696
+nSV = 508, nBSV = 0
+.*
+optimization finished, #iter = 1150
+nu = 0.010056277511210222
+obj = -112.5078036837812, rho = 0.6108520471137555
+nSV = 549, nBSV = 0
+*
+optimization finished, #iter = 827
+nu = 0.007311489276242094
+obj = -82.86772184057882, rho = 0.46434636457381057
+nSV = 389, nBSV = 0
+.*
+optimization finished, #iter = 1016
+nu = 0.009382243024018418
+obj = -107.46469782323457, rho = 0.8827473578683814
+nSV = 481, nBSV = 0
+*
+optimization finished, #iter = 788
+nu = 0.005737122339335241
+obj = -65.23028773455356, rho = 0.5281300396658938
+nSV = 404, nBSV = 0
+.*
+optimization finished, #iter = 1246
+nu = 0.008539838341912713
+obj = -90.29817043552816, rho = -0.13822149260350494
+nSV = 704, nBSV = 0
+.*
+optimization finished, #iter = 1137
+nu = 0.007987721385965233
+obj = -86.84206825738998, rho = -0.18715621302042007
+nSV = 638, nBSV = 0
+.*
+optimization finished, #iter = 1495
+nu = 0.010981812679998365
+obj = -119.28432610586295, rho = 0.07542587917911192
+nSV = 834, nBSV = 0
+.*
+optimization finished, #iter = 1758
+nu = 0.015268126923813703
+obj = -154.50700968017802, rho = 0.0815666003957497
+nSV = 942, nBSV = 0
+.*
+optimization finished, #iter = 1418
+nu = 0.012350958384741154
+obj = -128.7929508218251, rho = 0.08367997948388654
+nSV = 824, nBSV = 0
+.*
+optimization finished, #iter = 1258
+nu = 0.010533391007538834
+obj = -111.37729079190026, rho = -0.14851161421427694
+nSV = 692, nBSV = 0
+.*
+optimization finished, #iter = 1594
+nu = 0.013080654951684942
+obj = -139.8808670768333, rho = 0.21107559951005964
+nSV = 886, nBSV = 0
+.*
+optimization finished, #iter = 1552
+nu = 0.014547438872669063
+obj = -154.34415721652542, rho = -0.07566699256139497
+nSV = 795, nBSV = 0
+.*
+optimization finished, #iter = 1801
+nu = 0.01743764737784037
+obj = -191.7397387105063, rho = 0.02045457447065222
+nSV = 848, nBSV = 1
+.*
+optimization finished, #iter = 1410
+nu = 0.009999200759257762
+obj = -109.34819378835383, rho = 0.21900465305882724
+nSV = 774, nBSV = 0
+.*
+optimization finished, #iter = 1592
+nu = 0.01271745334445637
+obj = -129.63884404221545, rho = 0.2325355044739136
+nSV = 838, nBSV = 0
+.*
+optimization finished, #iter = 1643
+nu = 0.014442008169959662
+obj = -151.6636856989224, rho = 0.2840342271813649
+nSV = 877, nBSV = 0
+...*
+optimization finished, #iter = 3201
+nu = 0.037450198511075776
+obj = -403.56164666776544, rho = -0.006249699806925369
+nSV = 1280, nBSV = 6
+.*
+optimization finished, #iter = 1830
+nu = 0.014663559988966306
+obj = -157.8933885949969, rho = 0.36451133079882264
+nSV = 987, nBSV = 0
+.*
+optimization finished, #iter = 1547
+nu = 0.013356477683950565
+obj = -142.6965952167541, rho = 0.04047568840641533
+nSV = 819, nBSV = 0
+.*
+optimization finished, #iter = 1643
+nu = 0.014131156255017542
+obj = -158.74501063431046, rho = 0.25086096760651544
+nSV = 831, nBSV = 0
+.*
+optimization finished, #iter = 1422
+nu = 0.011402719534599566
+obj = -119.63601650701567, rho = 0.275352727040182
+nSV = 745, nBSV = 0
+.*
+optimization finished, #iter = 1570
+nu = 0.013982008247813451
+obj = -151.00509736111985, rho = 0.2564725166792884
+nSV = 820, nBSV = 0
+..*
+optimization finished, #iter = 2959
+nu = 0.03327457564552418
+obj = -368.7580063531596, rho = -0.10227992761788735
+nSV = 1166, nBSV = 4
+.*
+optimization finished, #iter = 1898
+nu = 0.019398615822892963
+obj = -214.65897071263495, rho = 0.44870124764857544
+nSV = 941, nBSV = 0
+.*
+optimization finished, #iter = 1126
+nu = 0.007158365163967838
+obj = -78.61047576947225, rho = 0.07582889325162435
+nSV = 628, nBSV = 0
+..*
+optimization finished, #iter = 2832
+nu = 0.03341167483263895
+obj = -350.21674823480663, rho = 0.06071418853913378
+nSV = 1347, nBSV = 0
+..*
+optimization finished, #iter = 2906
+nu = 0.0299345589057348
+obj = -322.98548734436736, rho = -0.058559250658373536
+nSV = 1446, nBSV = 0
+.*
+optimization finished, #iter = 1860
+nu = 0.017798786413345053
+obj = -194.64386407192058, rho = -0.29114870465321513
+nSV = 935, nBSV = 0
+..*
+optimization finished, #iter = 2320
+nu = 0.022580952543819664
+obj = -249.65002241103596, rho = 0.2078802198206792
+nSV = 1227, nBSV = 0
+.*
+optimization finished, #iter = 1336
+nu = 0.010213699963387167
+obj = -112.06114669609534, rho = -0.1735148063648005
+nSV = 742, nBSV = 0
+..*
+optimization finished, #iter = 2545
+nu = 0.02625639976642843
+obj = -263.82230575792727, rho = -0.11029861040569641
+nSV = 1284, nBSV = 0
+.*
+optimization finished, #iter = 1663
+nu = 0.01784615266301146
+obj = -181.91989430486382, rho = -0.30400372868061803
+nSV = 848, nBSV = 0
+.*
+optimization finished, #iter = 1809
+nu = 0.015456203476042554
+obj = -159.41147696354446, rho = 0.12731407802987849
+nSV = 1017, nBSV = 0
+.*
+optimization finished, #iter = 1792
+nu = 0.019474151005729728
+obj = -199.21813071673265, rho = -0.2013670149947356
+nSV = 895, nBSV = 0
+..*
+optimization finished, #iter = 2045
+nu = 0.02037107569259763
+obj = -213.99365392934823, rho = -0.301102083914276
+nSV = 1016, nBSV = 1
+..*
+optimization finished, #iter = 2311
+nu = 0.02243308287980941
+obj = -238.2799671220679, rho = 0.17871057108373323
+nSV = 1225, nBSV = 0
+.*
+optimization finished, #iter = 1565
+nu = 0.014222145515672533
+obj = -149.86435740752225, rho = -0.18280750137197876
+nSV = 834, nBSV = 0
+.*
+optimization finished, #iter = 1579
+nu = 0.013856578367133526
+obj = -149.20520238523454, rho = 0.35174141049848556
+nSV = 853, nBSV = 0
+.*
+optimization finished, #iter = 1212
+nu = 0.008245734385777161
+obj = -88.09422221874931, rho = 0.06048431032656852
+nSV = 665, nBSV = 0
+.*
+optimization finished, #iter = 1827
+nu = 0.014289885716879088
+obj = -154.38255331203567, rho = -0.3606228355088811
+nSV = 983, nBSV = 0
+Total nSV = 9820
+Accuracy = 98.04013065795614% (14707/15001) (classification)
