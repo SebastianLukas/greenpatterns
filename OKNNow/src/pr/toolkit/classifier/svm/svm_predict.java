@@ -5,7 +5,9 @@ import libsvm.*;
 import java.io.*;
 import java.util.*;
 
-
+/*
+* source classes from libsvm 3.22 package
+*/
 class svm_predict {
 	private static svm_print_interface svm_print_null = new svm_print_interface()
 	{
