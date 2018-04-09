@@ -5,6 +5,9 @@ import java.io.*;
 import java.util.*;
 import java.text.DecimalFormat;
 
+/*
+ * source classes from libsvm 3.22 package
+ */
 class svm_scale
 {
 	private String line = null;
