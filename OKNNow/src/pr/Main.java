@@ -33,8 +33,9 @@ public class Main {
             testFile = LibsvmConverter.convert((LabeledImageTable) Dataset.getTable("test"), "test");
         }
         try {
-            //4,0.03125
-            String libSvmArgs = "-t 2 -c 4 -gamma 0.03125 -d 9";
+            //0.03125 -c 8.0
+            //String libSvmArgs = "-t 2 -c 8 -gamma 0.03125";-d 2 -g 0.5 -c 32.0
+            String libSvmArgs = "-t 1 -c 32 -g 0.5 -d 2";
             Trainer svm = new Trainer(modelFile);
             svm.train(trainDatasetFile, libSvmArgs);
             Predictor predictor = new Predictor(testFile, modelFile);

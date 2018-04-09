@@ -1,3 +1,5 @@
+Grid Search for parameter C, from 4 to 64
+
 -v 10 -t 0 -q -d 2 -g 0.0 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
 Cross Validation Accuracy = 90.96666666666667%
 -v 10 -t 0 -q -d 2 -g 0.0 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
