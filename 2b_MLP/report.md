@@ -25,7 +25,7 @@ In this project we train a MultilayerPerceptron Classifier with a single hidden 
 
 Loss vs number of trainings iteration
 ```
-![Plot for MLP - Loss vs. number of trainings interation](loss_vs_nbr_iter_00001.png)
+![Plot for MLP - Loss vs. number of trainings interation](./loss_vs_nbr_iter_00001.png)
 ```
 
 **Best parameters:**
@@ -34,5 +34,6 @@ Loss vs number of trainings iteration
 - random_state: 17 
 
 **Final accuracy [%]: 97.334**
+
 Execution time [s]: 14.981 
 
