@@ -16,6 +16,24 @@ public class GridSearch {
         return list;
     }
 
+    public void customGammaGridSearch(int kernelCode, int nFolds, double[] gammas, String filePath) throws IOException {
+        ArrayList<Double> cValues = generateTestingValues(2,2,5);
+        String [] args = {"-v",Integer.toString(nFolds),"-t",Integer.toString(kernelCode),"-q","-d","2","-g","0","-c","0",filePath};
+        svm_train s = new svm_train();
+        for(int i = 0;i<cValues.size();i++){
+            args[10] = Double.toString( cValues.get(i));
+            for(int j = 0;j<gammas.length;j++){
+                args[8] = gammas[j] + "";
+                for(String e : args){
+                    System.out.print(e+" ");
+                }
+                System.out.println("");
+                s.main(args);
+            }
+        }
+    }
+
+
     /**
      *
      * @param kernelCode 1 for linear kernel and 2 for rbf
@@ -27,7 +45,7 @@ public class GridSearch {
         gValues.add(0.0d);
         String [] args = {"-v",Integer.toString(nFolds),"-t",Integer.toString(kernelCode),"-q","-d","2","-g","0","-c","0",filePath};
         if(kernelCode != 0) {
-            gValues = generateTestingValues(-10, 2, 10);
+            gValues = generateTestingValues(-4, 2, 5);
         }
         svm_train s = new svm_train();
         for(int i = 0;i<cValues.size();i++){
