@@ -5,6 +5,7 @@ import pr.data.table.LabeledImageTable;
 import pr.data.table.LibsvmConverter;
 import pr.data.table.TimeLocationsTable;
 import pr.toolkit.classifier.svm.*;
+import pr.toolkit.dtw.WordCutter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,9 +18,14 @@ public class Main {
         //table.importCSV(file);
         //ArrayList a = table.removeDuplicates();
         //table.writeFile("./././data/clean.txt", a);
+		WordCutter w = new WordCutter();
+		w.cutOutWords(
+			"../../../data/locations/",
+			"../../../data/images/",
+			"../../../data/cropped_images/");
 
         try {
-            GridSearch gs = new GridSearch();
+            //GridSearch gs = new GridSearch();
             //0 linear, 1 pol, 2 RBF, 3 sigmoid
 
             //gs.gridSearch(0,5,"./././data/mnist.svm.gridsearch_1k.txt");
@@ -43,7 +49,7 @@ public class Main {
 
         } catch(Exception e) { e.printStackTrace(); }
 
-
+/*
         String modelFileName = "./././data/mnist.svm.model";
         File modelFile = new File(modelFileName);
         File trainDatasetFile = null;
@@ -69,7 +75,7 @@ public class Main {
             Predictor predictor = new Predictor(testFile, modelFile);
             predictor.run();
         } catch (Exception e) { e.printStackTrace();}
-
+*/
         /*
         String[] fileNames = new String[] {"train.csv" };
         Main.setupData(fileNames);
