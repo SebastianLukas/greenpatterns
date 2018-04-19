@@ -1,0 +1,120 @@
+Grid Search parameter C=4 and gamma from 2^-10 to 2^-1
+
+-v 10 -t 3 -q -d 2 -g 9.765625E-4 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 89.93333333333334%
+-v 10 -t 3 -q -d 2 -g 0.001953125 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 90.86666666666666%
+-v 10 -t 3 -q -d 2 -g 0.00390625 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 90.83333333333333%
+-v 10 -t 3 -q -d 2 -g 0.0078125 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 89.4%
+-v 10 -t 3 -q -d 2 -g 0.015625 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 76.76666666666667%
+-v 10 -t 3 -q -d 2 -g 0.03125 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 45.7%
+-v 10 -t 3 -q -d 2 -g 0.0625 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 29.533333333333335%
+-v 10 -t 3 -q -d 2 -g 0.125 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 17.3%
+-v 10 -t 3 -q -d 2 -g 0.25 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 11.866666666666667%
+-v 10 -t 3 -q -d 2 -g 0.5 -c 4.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 11.0%
+
+
+Grid Search parameter C=8 and gamma from 2^-10 to 2^-1
+
+-v 10 -t 3 -q -d 2 -g 9.765625E-4 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.46666666666667%
+-v 10 -t 3 -q -d 2 -g 0.001953125 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.23333333333333%
+-v 10 -t 3 -q -d 2 -g 0.00390625 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.23333333333333%
+-v 10 -t 3 -q -d 2 -g 0.0078125 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 88.8%
+-v 10 -t 3 -q -d 2 -g 0.015625 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 75.36666666666666%
+-v 10 -t 3 -q -d 2 -g 0.03125 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 46.06666666666667%
+-v 10 -t 3 -q -d 2 -g 0.0625 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 29.233333333333334%
+-v 10 -t 3 -q -d 2 -g 0.125 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 17.0%
+-v 10 -t 3 -q -d 2 -g 0.25 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 10.866666666666667%
+-v 10 -t 3 -q -d 2 -g 0.5 -c 8.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 10.266666666666667%
+
+
+Grid Search parameter C=16 and gamma from 2^-10 to 2^-1
+
+-v 10 -t 3 -q -d 2 -g 9.765625E-4 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.53333333333333%
+-v 10 -t 3 -q -d 2 -g 0.001953125 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.46666666666667%
+-v 10 -t 3 -q -d 2 -g 0.00390625 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.03333333333333%
+-v 10 -t 3 -q -d 2 -g 0.0078125 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 87.43333333333334%
+-v 10 -t 3 -q -d 2 -g 0.015625 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 73.33333333333333%
+-v 10 -t 3 -q -d 2 -g 0.03125 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 47.6%
+-v 10 -t 3 -q -d 2 -g 0.0625 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 28.866666666666667%
+-v 10 -t 3 -q -d 2 -g 0.125 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 18.466666666666665%
+-v 10 -t 3 -q -d 2 -g 0.25 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 11.1%
+-v 10 -t 3 -q -d 2 -g 0.5 -c 16.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 9.733333333333333%
+
+
+Grid Search parameter C=32 and gamma from 2^-10 to 2^-1
+
+-v 10 -t 3 -q -d 2 -g 9.765625E-4 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.66666666666667%
+-v 10 -t 3 -q -d 2 -g 0.001953125 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.33333333333333%
+-v 10 -t 3 -q -d 2 -g 0.00390625 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 90.43333333333334%
+-v 10 -t 3 -q -d 2 -g 0.0078125 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 85.13333333333334%
+-v 10 -t 3 -q -d 2 -g 0.015625 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 73.06666666666666%
+-v 10 -t 3 -q -d 2 -g 0.03125 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 46.93333333333333%
+-v 10 -t 3 -q -d 2 -g 0.0625 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 29.033333333333335%
+-v 10 -t 3 -q -d 2 -g 0.125 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 20.033333333333335%
+-v 10 -t 3 -q -d 2 -g 0.25 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 11.9%
+-v 10 -t 3 -q -d 2 -g 0.5 -c 32.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 9.2%
+
+
+Grid Search parameter C=64 and gamma from 2^-10 to 2^-1
+
+-v 10 -t 3 -q -d 2 -g 9.765625E-4 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 91.33333333333333%
+-v 10 -t 3 -q -d 2 -g 0.001953125 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 90.9%
+-v 10 -t 3 -q -d 2 -g 0.00390625 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 89.9%
+-v 10 -t 3 -q -d 2 -g 0.0078125 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 84.13333333333334%
+-v 10 -t 3 -q -d 2 -g 0.015625 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 72.96666666666667%
+-v 10 -t 3 -q -d 2 -g 0.03125 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 46.9%
+-v 10 -t 3 -q -d 2 -g 0.0625 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 25.666666666666668%
+-v 10 -t 3 -q -d 2 -g 0.125 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 19.433333333333334%
+-v 10 -t 3 -q -d 2 -g 0.25 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 11.966666666666667%
+-v 10 -t 3 -q -d 2 -g 0.5 -c 64.0 ./././data/mnist.svm.gridsearch_3k.txt 
+Cross Validation Accuracy = 8.933333333333334%
+
+
