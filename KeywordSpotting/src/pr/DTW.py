@@ -3,12 +3,14 @@ import mlpy
 import os
 from PIL import Image
 
-IMG_PATH = "../../data/cropped_bw_images/"
+#IMG_PATH = "../../data/cropped_bw_images/"
+IMG_PATH = "../../data/better_cropped_bw_image/"
 IMG_ENDING = "_bw.png"
 TRANSCRIPTION = "../../data/transcription.txt"
 KEYWORDS = "../../data/keywords.txt"
-TOP_N = 50
 #KEYWORDS = "../../data/keywords_subset.txt"
+TOP_N = 50
+
 
 tp_total = 0
 fp_total = 0
@@ -29,6 +31,31 @@ def extractFeatures(img):
         if bCount > 0:
             res = np.append(res,float(bCount)/count)
             res = np.append(res,bCount)
+            res = np.append(res,trans)
+  
+    return res
+
+def extractFeaturesDRAFT(img):
+    res = np.array([])
+    for x in range(0, img.shape[1]):
+        bCount = count = trans = uCon = 0
+        lCon = img.shape[0]
+        for y in range(0, img.shape[0]):
+            if img[y][x] == 0:
+                lCon = count
+                bCount+=1  
+                if uCon == 0:
+                    uCon = count
+                    
+            count+=1   
+            if y > 0:
+                if img[y][x] != img[y-1][x]:
+                    trans+=1
+        if bCount > 0:
+            res = np.append(res,float(bCount)/count)
+            res = np.append(res,bCount)
+            #res = np.append(res,uCon)
+            res = np.append(res,lCon)
             res = np.append(res,trans)
   
     return res
