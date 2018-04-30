@@ -7,6 +7,7 @@ IMG_PATH = "../../data/cropped_bw_images/"
 IMG_ENDING = "_bw.png"
 TRANSCRIPTION = "../../data/transcription.txt"
 KEYWORDS = "../../data/keywords.txt"
+TOP_N = 50
 #KEYWORDS = "../../data/keywords_subset.txt"
 
 tp_total = 0
@@ -147,8 +148,9 @@ def getTestSamples(keyword):
     #print d        
     return d             
 
-keywordSpotter(15)
+keywordSpotter(TOP_N)
 print "\nTotal Recall & Precision:"
-print "Recall", getRecall(tp_total,fp_total,fn_total)
-print "Precision", getPrecision(tp_total,fp_total,fn_total)
+print "N:", TOP_N
+print "Recall:", getRecall(tp_total,fp_total,fn_total)
+print "Precision:", getPrecision(tp_total,fp_total,fn_total)
 

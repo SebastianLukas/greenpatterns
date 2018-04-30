@@ -1,62 +1,53 @@
 Greengroup
-Readme and Report on exercise 02_a - SVM
+Readme and Report on exercise Keyword Spotting
 
 Brief Project description and results
 ------------------------------------------------------------------------------
-Libraries
+Python module/library
 ------------------------------------------------------------------------------
-libsvm 3.22
-
+mlpy (http://mlpy.sourceforge.net/) requirements etc. are documented in mlpy.pdf
+PIL (Pillow)
 ------------------------------------------------------------------------------
 Sourcecode
 ------------------------------------------------------------------------------
-SVM Relevant classes: 
-toolkit.classifier.GridSearch
-toolkit.classifier.Trainer.java 
-toolkit.classifier.Predictor.java
-
-Trainer and Predictor classes are more or less barbone wrapping classes to use libsvm. 
+Keyword Spotting Relevant classes: 
+src/pr/DTW.pyN
+toolkit.dtw.WordCutter (java)
 
 ------------------------------------------------------------------------------
-Grid Search
+Preprocessing
 ------------------------------------------------------------------------------
-We investigated all 4 Kernels with performing a grid search in order to compute
-good parameters.
-We did grid search on a sample of 3000 instances, 10 fold crossvalidation
-and probing for each cost C {4,8,..,32} gamma values {2^-10, 2^-9, ..., 1}  
-
-Results with Cross Validation Accuracies are in
-OKNNow\data\reports\gridsearch
+First we cut out all words with the WordCutter (java implementation). 
 
 ------------------------------------------------------------------------------
-Feature Selection and other processing on the data
+Feature Extraction (implemented in DTW.py)
 ------------------------------------------------------------------------------
-Feature Selection did not prove useful to the extent we tried it.
-The only processing we did on the data is scaling the 0 to 255 values into 0 to 1 
-decimal values, this was required for the use with libsvm. 
+For every pixel column of the image we calculated 3 features:
+	- Number of black pixels
+	- Number of black pixels divided by the total number of pixels (per column)
+	- Number of black/white transitions
 
+Thus we extracted a global feature vector for each image.
 ------------------------------------------------------------------------------
-Investigated Kernels 
+DTW Evaluation
 ------------------------------------------------------------------------------
-We investigated the Polinomial and the RBF Kernels, those were the most promising
-out of the grid search phase.
+In our DTW application we loop through the keyword list. First we search for one
+word example in the train set.
+After that we spot the N nearest words to our word example in the test set by using mlpy's DTW implementation.
 
-(details in OKNNow\data\reports\tests)
+Evaluation:
+N: 50
+Recall: 0.77027027027
+Precision: 0.0106542056075
 
-With RBF Kernel our best result is:
-c=4, gamma=0.03125
-Accuracy = 98.04013065795614% (14707/15001) (classification)
-Total nSV = 9820
+N: 15
+Recall: 0.594594594595
+Precision: 0.0274143302181
 
-With Pol Kernel our best result is:
-with c=32, gamma=0.5 degree=2
-Accuracy = 97.48016798880074% (14623/15001) (classification)
-Total nSV = 5165
+N: 10
+Recall: 0.567567567568
+Precision: 0.0392523364486
 
-Values are computed using the entire datasets
 
-For RBF we did also run a classification on 10 fold crossvalidation and the 
-success rate did really well
-C=4, gamma=0.03125, 10 fold crossvalidation on entire dataset
-Cross Validation Accuracy = 97.94792013927473%
-Total nSV = 9161
+Downside of spotting N words is that a very low precision results. Furthermore there are many words in the keyword list
+which doesn't occur in the test set.
