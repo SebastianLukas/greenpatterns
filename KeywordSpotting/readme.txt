@@ -17,8 +17,12 @@ toolkit.dtw.WordCutter (java)
 ------------------------------------------------------------------------------
 Preprocessing
 ------------------------------------------------------------------------------
-First we cut out all words with the WordCutter (java implementation). 
+First we cut out all words with the WordCutter (java implementation).
+Second we transformed the grey like background into white and as last step converted the images into B&W using Otsu (python)
+Last step was cropping white border. (python)
 
+Resampling all images to 200x200 did not improve recall. (python)
+We suppose that the feature we use do not benefit from this.
 ------------------------------------------------------------------------------
 Feature Extraction (implemented in DTW.py)
 ------------------------------------------------------------------------------
