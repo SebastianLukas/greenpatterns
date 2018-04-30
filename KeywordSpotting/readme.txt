@@ -5,13 +5,13 @@ Brief Project description and results
 ------------------------------------------------------------------------------
 Python module/library
 ------------------------------------------------------------------------------
-mlpy (http://mlpy.sourceforge.net/) requirements etc. are documented in mlpy.pdf
-PIL (Pillow)
+mlpy 3.5 (http://mlpy.sourceforge.net/) requirements etc. are documented in mlpy.pdf
+PIL 1.1.7 (Pillow)
 ------------------------------------------------------------------------------
 Sourcecode
 ------------------------------------------------------------------------------
 Keyword Spotting Relevant classes: 
-src/pr/DTW.pyN
+src/pr/DTW.py
 toolkit.dtw.WordCutter (java)
 
 ------------------------------------------------------------------------------
