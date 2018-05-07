@@ -4,7 +4,7 @@ import os
 from PIL import Image
 
 #IMG_PATH = "../../data/cropped_bw_images/"
-IMG_PATH = "../../data/better_cropped_bw_image/"
+IMG_PATH = "../../data/border_cropped_bw/"
 IMG_ENDING = "_bw.png"
 TRANSCRIPTION = "../../data/transcription.txt"
 KEYWORDS = "../../data/keywords.txt"
