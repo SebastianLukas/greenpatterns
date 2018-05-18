@@ -1,7 +1,6 @@
 package pr.problem.molecules;
 
 import algorithms.GraphMatching;
-import xml.XMLParser;
 
 public class Classifier {
 
@@ -49,6 +48,12 @@ public class Classifier {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //for us todo:
+        //1. get the distance matrix between the graphs out of GraphMatching
+        //we compute them once! we should write a file to save the distances
+        //2. as last step: load the prevous results and
+        //use the pairwise distances between molecules (hope they are pairwise) as distance metric for KNN classifying
     }
 
 }
