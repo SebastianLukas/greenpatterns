@@ -27,7 +27,7 @@ public class GsmTable extends Table<GsmTrack> {
         //time of stay in same cell in 1 min granularity
         //hour of day
         //normalize stuff between 0 and 1
-        Iterator<Long> keys = this.getTable().keySet().iterator();
+        Iterator<Integer> keys = this.getTable().keySet().iterator();
         GsmTrack previousGsmTrack = (GsmTrack)this.getRow(keys.next());
         long longBeginningOfStay = previousGsmTrack.getTimestamp();
         float timeOfStay = 0f;
@@ -37,7 +37,7 @@ public class GsmTable extends Table<GsmTrack> {
         HashSet<Integer> locationSet = new HashSet<Integer>();
         //HashMap<Integer, HashSet<Integer>> neigbours = new HashMap<Integer, HashSet<Integer>>();
         while(keys.hasNext()) {
-            Long i = keys.next();
+            Integer i = keys.next();
             featureVector = new ArrayList<Float>();
             GsmTrack currentGsmTrack = (GsmTrack)this.getRow(i);
             long timestamp = currentGsmTrack.getTimestamp();
@@ -108,7 +108,7 @@ public class GsmTable extends Table<GsmTrack> {
 
     public ArrayList removeDuplicates() {
         ArrayList list = new ArrayList();
-        for (Long i: this.getTable().keySet()
+        for (Integer i: this.getTable().keySet()
              ) {
             GsmTrack s = (GsmTrack)this.getTable().get(i).getRow();
             if(!list.contains(s))
@@ -119,9 +119,9 @@ public class GsmTable extends Table<GsmTrack> {
 
     public void writeCSV() {
         ArrayList<String> lines = new ArrayList<String>();
-        List<Long> keys = new ArrayList<Long>(this.getTable().keySet());
+        List<Integer> keys = new ArrayList<Integer>(this.getTable().keySet());
         Collections.sort(keys);
-        Iterator<Long> iter = keys.iterator();
+        Iterator<Integer> iter = keys.iterator();
         while(iter.hasNext()) {
             GsmTrack gsmTrack = (GsmTrack) this.getRow(iter.next());
             lines.add(gsmTrack.getDateTime() + ", " + gsmTrack.getGsmCell() + ", "

@@ -2,7 +2,6 @@ package pr.data.table;
 
 import pr.data.table.row.Distances;
 import pr.util.measures.DistanceMeasurement;
-import pr.util.measures.EuclideanDistanceMeasurement;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -34,9 +33,9 @@ public class DistancesTable extends Table<ArrayList<DistanceMeasurement>> {
                     for(int i = 0; i < values.length; i++) {
                         String item = values[i].trim();
                         String[] items = item.split(itemSeparator);
-                        DistanceMeasurement edm = new EuclideanDistanceMeasurement(
+                        DistanceMeasurement edm = new DistanceMeasurement(
                                 Integer.parseInt(items[0]), Integer.parseInt(items[1]),
-                                Double.parseDouble(items[4]),
+                                Float.parseFloat(items[4]),
                                 items[2] == "" ? -1 : Integer.parseInt(items[2]), items[3] == "" ? -1 : Integer.parseInt(items[3]));
                         dms.add(edm);
                     }

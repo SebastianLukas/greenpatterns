@@ -1,30 +1,68 @@
 package pr;
 
 import pr.data.Dataset;
+import pr.data.counting.Statistics;
+import pr.data.table.GeoTable;
+import pr.data.table.GsmGeoTable;
+import pr.data.table.GsmTable;
+import pr.data.table.PlaceTable;
 import pr.data.table.LabeledImageTable;
 import pr.data.table.LibsvmConverter;
 import pr.data.table.TimeLocationsTable;
+import pr.problem.molecules.Classifier;
 import pr.toolkit.classifier.svm.*;
 import pr.toolkit.dtw.WordCutter;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Main {
     public static void main(String[] args) {
+
+        /*
+        int timeGranularity = 2;
+        GsmTable gsmTable = new GsmTable();
+        File file = new File("./././data/gsm-trace-5961-2.txt");
+        gsmTable.importCSV(file, timeGranularity);
+        gsmTable.writeCSV();
+
+        GeoTable geoTable = new GeoTable();
+        file = new File("./././data/usr_5961_gps_records.txt");
+        geoTable.importCSV(file, timeGranularity);
+        //geoTable.addDateTime(file, timeGranularity);
+        geoTable.writeCSV();
+
+        GsmGeoTable ggt = new GsmGeoTable(gsmTable, geoTable);
+        Dataset.setTable("gsmGeoTable", ggt);
+        ggt.writeCSV();
+
+        PlaceTable pt = new PlaceTable();
+        Map<Integer, ArrayList<Integer>> places = pt.groupCells(gsmTable, ggt);
+        */
+
         //TimeLocationsTable table = new TimeLocationsTable();
         //File file = new File("./././data/mc.txt");
         //table.importCSV(file);
         //ArrayList a = table.removeDuplicates();
         //table.writeFile("./././data/clean.txt", a);
-		WordCutter w = new WordCutter();
-		w.cutOutWords(
-			"../../../data/locations/",
-			"../../../data/images/",
-			"../../../data/cropped_images/");
+
+
+        //WordCutter w = new WordCutter();
+		//w.cutOutWords(
+		//	"../../../data/locations/",
+		//	"../../../data/images/",
+		//	"../../../data/cropped_images/");
 
         try {
+
+
+            Classifier classifier = new Classifier();
+            classifier.run();
+
+
             //GridSearch gs = new GridSearch();
             //0 linear, 1 pol, 2 RBF, 3 sigmoid
 

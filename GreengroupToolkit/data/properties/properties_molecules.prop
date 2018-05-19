@@ -13,17 +13,17 @@
 #########################################################################################
 # 	source and target graph set, pathes to the graph and result folder		#
 #########################################################################################
-source=./data/Molecules/small.xml
-target=./data/Molecules/small.xml
-path=./data/Molecules/
-result=./result/molecule
+source=./././data/molecules/train.txt
+target=./././data/molecules/valid.txt
+path=./././data/molecules/
+result=./././data/results/result.txt
 
 
 #########################################################################################
 # 	graph matching paradigm (possible choices are: AStar, Beam, Hungarian, VJ)	#
 # 	if "Beam" is chosen, maximum number of open paths s has to be defined		#
 #########################################################################################
-matching=Beam
+matching=Hungarian
 s=10
 adj=best
 
@@ -40,6 +40,12 @@ edge=3.0
 numOfNodeAttr=2
 nodeAttr0=chem
 nodeAttr1=charge
+#numOfNodeAttr=5
+#nodeAttr0=symbol
+#nodeAttr1=chem
+#nodeAttr2=charge
+#nodeAttr3=x
+#nodeAttr4=y
 
 
 #########################################################################################
@@ -50,6 +56,12 @@ nodeAttr1=charge
 #########################################################################################
 nodeCostType0=discrete
 nodeCostType1=absolute
+#nodeCostType0=
+#nodeCostType1=
+#nodeCostType2=
+#nodeCostType3=
+#nodeCostType4=
+
 nodeCostMu0=0
 nodeCostNu0=2
 

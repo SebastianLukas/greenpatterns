@@ -24,8 +24,8 @@ public class KNN {
 
     private int loggingSteps = 500; //processed test instances
 
-    private ArrayList<ArrayList<DistanceMeasurement>> euclideanDistances;
-    private ArrayList<ArrayList<DistanceMeasurement>> manhattanDistances;
+    private ArrayList<List<DistanceMeasurement>> euclideanDistances;
+    private ArrayList<List<DistanceMeasurement>> manhattanDistances;
 
     private ArrayList<Classification> classification;
 
@@ -34,10 +34,10 @@ public class KNN {
     public final static int EUCLIDEAN_DISTANCE = 1;
     public final static int MANHATTAN_DISTANCE = 2;
 
-    public KNN(Dataset data) {
-        this.trainingData = data.getTable("training");
-        this.testData = data.getTable("test");
-        this.labels = data.getTable("labels");
+    public KNN(String trainingDatasetName, String testingDatasetName, String labelDatasetName) {
+        this.trainingData = Dataset.getTable("training");
+        this.testData = Dataset.getTable("test");
+        this.labels = Dataset.getTable("labels");
     }
 
     public void run(int k, int distanceMetric) {
@@ -59,11 +59,11 @@ public class KNN {
         }
     }
 
-    private void run(int k, ArrayList<ArrayList<DistanceMeasurement>> distances, int distanceMetric) {
+    public void run(int k, ArrayList<List<DistanceMeasurement>> distances, int distanceMetric) {
         this.classification = new ArrayList<Classification>();
-        Iterator<ArrayList<DistanceMeasurement>> iter = distances.iterator();
+        Iterator<List<DistanceMeasurement>> iter = distances.iterator();
         while(iter.hasNext()) {
-            ArrayList<DistanceMeasurement> neighbours = iter.next();
+            List<DistanceMeasurement> neighbours = iter.next();
             int majorityLabel = KNNClassify(k, neighbours);
             int id = neighbours.get(0).getInstance1Id();
             int trueLabel = neighbours.get(0).getInstance1TestDataLabel();
@@ -96,7 +96,7 @@ public class KNN {
         return evaluation;
     }
 
-    private int KNNClassify(int k, ArrayList<DistanceMeasurement> neighbours) {
+    private int KNNClassify(int k, List<DistanceMeasurement> neighbours) {
         int majorityLabel = -1;
         Map<Integer, Integer> labelCount = new HashMap<Integer, Integer>();
         for(int i = 0; i < k; i++) {
@@ -124,7 +124,7 @@ public class KNN {
     public KNN computeDistances(int distanceMetric, boolean save) {
         switch (distanceMetric) {
             case EUCLIDEAN_DISTANCE : {
-                this.euclideanDistances = new ArrayList<ArrayList<DistanceMeasurement>>();
+                this.euclideanDistances = new ArrayList<List<DistanceMeasurement>>();
                 for (int i = 1; i <= testData.getSize(); i++) {
                     LabeledImage toClassify = (LabeledImage) testData.getRow(i);
                     int trueLabel = toClassify.getLabel();
@@ -139,7 +139,7 @@ public class KNN {
                 break;
             }
             case MANHATTAN_DISTANCE : {
-                this.manhattanDistances = new ArrayList<ArrayList<DistanceMeasurement>>();
+                this.manhattanDistances = new ArrayList<List<DistanceMeasurement>>();
                 for (int i = 1; i <= testData.getSize(); i++) {
                     LabeledImage toClassify = (LabeledImage) testData.getRow(i);
                     int trueLabel = toClassify.getLabel();
@@ -157,7 +157,7 @@ public class KNN {
         return this;
     }
 
-    private void storeDistances(int metric, ArrayList<ArrayList<DistanceMeasurement>> distances) {
+    private void storeDistances(int metric, ArrayList<List<DistanceMeasurement>> distances) {
         File file = null;
         switch (metric) {
             case EUCLIDEAN_DISTANCE :
@@ -172,7 +172,7 @@ public class KNN {
         try {
             FileWriter writer = new FileWriter(file);
             for(int i = 0; i < distances.size(); i++) {
-                ArrayList<DistanceMeasurement> singleDistanceSet = distances.get(i);
+                List<DistanceMeasurement> singleDistanceSet = distances.get(i);
                 for(int j = 0; j < singleDistanceSet.size(); j++ ) {
                     writer.write(singleDistanceSet.get(j).toString()+"\n");
                 }
@@ -207,7 +207,7 @@ public class KNN {
             LabeledImage trainingRecord = (LabeledImage)trainingData.getRow(i);
             double[] trainingInstance = trainingRecord.getImage();
             int trainingLabel = trainingRecord.getLabel();
-            DistanceMeasurement distance = new ManhattanDistanceMeasurement(id, i,
+            DistanceMeasurement distance = new DistanceMeasurement(id, i,
                     ManhattanDistance.compute(trainingInstance, toClassify) /*Math.sqrt(total)*/,
                     trainingLabel,
                     testTrueLabel);
@@ -238,7 +238,7 @@ public class KNN {
             //    diff = Math.abs(trainingInstance[j] - toClassify[j]);
             //    total += diff * diff;
             //}
-            EuclideanDistanceMeasurement distance = new EuclideanDistanceMeasurement(id, i,
+            DistanceMeasurement distance = new DistanceMeasurement(id, i,
                     EuclideanDistance.compute(trainingInstance, toClassify), //compute2,
                     trainingLabel, 
                     testTrueLabel);

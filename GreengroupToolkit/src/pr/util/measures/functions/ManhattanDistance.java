@@ -4,7 +4,7 @@ package pr.util.measures.functions;
  * Created by Seba on 04/03/2018.
  */
 public class ManhattanDistance {
-    public static double compute(double[] a, double[] b) {
+    public static float compute(double[] a, double[] b) {
         double total = 0;
         double diff;
         for(int j = 0; j < a.length; j++) {
@@ -16,6 +16,6 @@ public class ManhattanDistance {
                 total += diff;
             //}
         }
-        return total;
+        return (float)total;
     }
 }

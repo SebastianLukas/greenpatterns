@@ -2,10 +2,7 @@ package pr.data.table;
 
 import pr.data.table.row.GeoTrack;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class GeoTable extends Table<GeoTrack> {
 
@@ -22,10 +19,10 @@ public class GeoTable extends Table<GeoTrack> {
         } catch(Exception e) {
             e.printStackTrace();
         }
-        List<Long> keys = new ArrayList<Long>(this.getTable().keySet());
+        List<Integer> keys = new ArrayList<Integer>(this.getTable().keySet());
         ArrayList<String> lines = new ArrayList<String>();
         Collections.sort(keys);
-        Iterator<Long> iter = keys.iterator();
+        Iterator<Integer> iter = keys.iterator();
         while(iter.hasNext()) {
             GeoTrack geoTrack = (GeoTrack) this.getRow(iter.next());
             lines.add(geoTrack.getDatetime() +", " + geoTrack.getLongitude() + ", "
@@ -68,9 +65,9 @@ public class GeoTable extends Table<GeoTrack> {
 
     public void writeCSV() {
         ArrayList<String> lines = new ArrayList<String>();
-        List<Long> keys = new ArrayList<Long>(this.getTable().keySet());
+        List<Integer> keys = new ArrayList<Integer>(this.getTable().keySet());
         Collections.sort(keys);
-        Iterator<Long> iter = keys.iterator();
+        Iterator<Integer> iter = keys.iterator();
         while(iter.hasNext()) {
             GeoTrack geoTrack = (GeoTrack) this.getRow(iter.next());
             lines.add(geoTrack.getDatetime() +", " + geoTrack.getLongitude() + ", "

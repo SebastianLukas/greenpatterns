@@ -22,6 +22,11 @@ public class Table<T> {
         this.autoincrementId = lastId;
     }
 
+    public void setTable(HashMap<Integer, Row<T>> table) {
+        this.table = table;
+        this.autoincrementId = table.size();
+    }
+
     public HashMap<Integer, Row<T>> getTable() {
         return this.table;
     }
@@ -29,6 +34,13 @@ public class Table<T> {
     public void addRow(Row<T> row) {
         incrementId();
         table.put(this.autoincrementId, row);
+    }
+
+    public void addRow(Row<T> row, Integer id) {
+        if(!table.containsKey(id)) {
+            incrementId();
+            table.put(id, row);
+        }
     }
 
     public Row<T> getRow(Integer id) {

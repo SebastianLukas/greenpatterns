@@ -46,7 +46,7 @@ public class PlaceTable {
                 Double[] centerLongLat = cellCoords.get(centerCell);
 
                 //search through the gsmGeoTable and gather the closes ones
-                Iterator<Long> gsmGeoTableIter = gsmGeoTable.getTable().keySet().iterator();
+                Iterator<Integer> gsmGeoTableIter = gsmGeoTable.getTable().keySet().iterator();
                 while(gsmGeoTableIter.hasNext()) {
                     GsmGeo gg = (GsmGeo) gsmGeoTable.getTable().get(gsmGeoTableIter.next());
                     if(visited.contains(gg.getCell()))

@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 public class GeoTrack extends Row<GeoTrack> {
-    private long timestamp;
+    private int timestamp;
     private String datetime;
     private float longitude;
     private float latitude;
@@ -25,9 +25,9 @@ public class GeoTrack extends Row<GeoTrack> {
             this.longitude = Float.parseFloat(tokens[0]);
             this.latitude = Float.parseFloat(tokens[1]);
             if(timeGranularity == MINUTES) {
-                this.timestamp = TimeUnit.SECONDS.toMinutes(Long.parseLong(tokens[2]));
+                this.timestamp = (int)TimeUnit.SECONDS.toMinutes(Integer.parseInt(tokens[2]));
             } else {
-                this.timestamp = Long.parseLong(tokens[2]);
+                this.timestamp = Integer.parseInt(tokens[2]);
             }
             DateTimeFormatter f = DateTimeFormatter.ofPattern(format);
             try {
@@ -48,7 +48,7 @@ public class GeoTrack extends Row<GeoTrack> {
         }
     }
 
-    public long getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 

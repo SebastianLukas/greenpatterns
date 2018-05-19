@@ -4,7 +4,7 @@ package pr.util.measures.functions;
  * Created by Seba on 04/03/2018.
  */
 public class EuclideanDistance  {
-    public static double compute(double[] a, double[] b) {
+    public static float compute(double[] a, double[] b) {
         double total = 0;
         double diff;
         for(int j = 0; j < a.length; j++) {
@@ -21,11 +21,11 @@ public class EuclideanDistance  {
                 //}
             }
         }
-        return Math.sqrt(total);
+        return (float)Math.sqrt(total);
     }
 
     //draft
-    public static double compute2(int[] a, int[] b) {
+    public static float compute2(int[] a, int[] b) {
         double total = 0, diff;
         for(int j = 0; j < a.length; j++) {
             if(a[j] == b[j]) continue;
@@ -41,6 +41,6 @@ public class EuclideanDistance  {
             diff = Math.abs(a[j] - b[j]);
             total += diff * diff;
         }
-        return Math.sqrt(total);
+        return (float)Math.sqrt(total);
     }
 }

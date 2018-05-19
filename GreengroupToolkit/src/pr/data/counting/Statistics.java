@@ -15,7 +15,7 @@ public class Statistics {
 
     public static Map<Integer, Integer> countVisitsPerCell(GsmTable gsmTable) {
         HashMap<Integer, Integer> count = new HashMap<Integer, Integer>();
-        Iterator<Long> iter = gsmTable.getTable().keySet().iterator();
+        Iterator<Integer> iter = gsmTable.getTable().keySet().iterator();
         while (iter.hasNext()) {
 
             GsmTrack gt = (GsmTrack) gsmTable.getRow(iter.next());

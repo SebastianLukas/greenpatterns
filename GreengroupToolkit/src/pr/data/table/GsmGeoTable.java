@@ -15,9 +15,9 @@ public class GsmGeoTable extends Table<GsmGeo> {
 
     public GsmGeoTable(GsmTable gsm, GeoTable geo)  {
         Table<GsmGeo> rows = new Table<GsmGeo>();
-        Iterator<Long> iter = gsm.getTable().keySet().iterator();
+        Iterator<Integer> iter = gsm.getTable().keySet().iterator();
         while(iter.hasNext()) {
-            Long id = iter.next();
+            Integer id = iter.next();
             if(geo.getTable().containsKey(id)) {
                 GsmTrack gsmTrack = (GsmTrack) gsm.getTable().get(id);
                 GeoTrack geoTrack = (GeoTrack) geo.getTable().get(id);
@@ -50,9 +50,9 @@ public class GsmGeoTable extends Table<GsmGeo> {
 
     public void writeCSV() {
         ArrayList<String> lines = new ArrayList<String>();
-        List<Long> keys = new ArrayList<Long>(this.getTable().keySet());
+        List<Integer> keys = new ArrayList<Integer>(this.getTable().keySet());
         Collections.sort(keys);
-        Iterator<Long> iter = keys.iterator();
+        Iterator<Integer> iter = keys.iterator();
         while(iter.hasNext()) {
             GsmGeo gsmGeo = (GsmGeo) this.getRow(iter.next());
             lines.add(gsmGeo.getDateTime() + ", " + gsmGeo.getLongitude() + ", "

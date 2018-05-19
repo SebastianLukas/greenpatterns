@@ -21,7 +21,7 @@ public class EuclideanDistanceMeasurer extends DistanceMeasurer {
         for(int i = 1; i <= table.getSize(); i++) {
             LabeledImage trainingRecord = (LabeledImage)table.getRow(i);
             double[] trainingInstance = trainingRecord.getImage();
-            EuclideanDistanceMeasurement distanceMeasure = new EuclideanDistanceMeasurement(id, i,
+            DistanceMeasurement distanceMeasure = new DistanceMeasurement(id, i,
                     EuclideanDistance.compute(trainingInstance, instance));
             if(sortedDistances.size()>=size) {
                 sortedDistances.poll();

@@ -6,7 +6,7 @@ import java.time.*;
 import java.util.concurrent.TimeUnit;
 
 public class GsmTrack extends Row<GsmTrack> {
-    private long timestamp;
+    private int timestamp;
     private String dateTime;
     private int gsmCell;
     private int label;
@@ -23,9 +23,9 @@ public class GsmTrack extends Row<GsmTrack> {
         try {
             LocalDateTime dateTime = LocalDateTime.from(f.parse(tokens[0]));
             if(timeGranularity == MINUTES) {
-                this.timestamp = TimeUnit.SECONDS.toMinutes(dateTime.atZone(ZoneId.systemDefault()).toInstant().getEpochSecond());
+                this.timestamp = (int)TimeUnit.SECONDS.toMinutes(dateTime.atZone(ZoneId.systemDefault()).toInstant().getEpochSecond());
             } else {
-                this.timestamp = dateTime.atZone(ZoneId.systemDefault()).toInstant().getEpochSecond();
+                this.timestamp = (int)dateTime.atZone(ZoneId.systemDefault()).toInstant().getEpochSecond();
             }
             this.gsmCell = Integer.parseInt(tokens[1]);
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public class GsmTrack extends Row<GsmTrack> {
         return label + " " + timestamp + " " + gsmCell;
     }
 
-    public long getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 

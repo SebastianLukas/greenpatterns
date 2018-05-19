@@ -2,7 +2,7 @@ package pr.data.table.row;
 
 public class GsmGeo extends Row<GsmGeo> {
     private String dateTime;
-    private long timestamp;
+    private int timestamp;
     private float longitude;
     private float latitude;
     private int cell;
@@ -10,7 +10,7 @@ public class GsmGeo extends Row<GsmGeo> {
 
     public GsmGeo() { }
 
-    public GsmGeo(String dateTime, long timestamp, float longitude, float latitude, int cell, float velocity) {
+    public GsmGeo(String dateTime, int timestamp, float longitude, float latitude, int cell, float velocity) {
         this.dateTime = dateTime;
         this.timestamp = timestamp;
         this.longitude = longitude;
@@ -24,7 +24,7 @@ public class GsmGeo extends Row<GsmGeo> {
         try {
             this.longitude = Float.parseFloat(tokens[0]);
             this.latitude = Float.parseFloat(tokens[1]);
-            this.timestamp = Long.parseLong(tokens[2]);
+            this.timestamp = Integer.parseInt(tokens[2]);
             this.velocity = Float.parseFloat(tokens[3]);
             this.cell = Integer.parseInt(tokens[4]);
         } catch (Exception e) {
@@ -32,7 +32,7 @@ public class GsmGeo extends Row<GsmGeo> {
         }
     }
 
-    public long getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 

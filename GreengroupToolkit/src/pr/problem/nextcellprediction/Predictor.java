@@ -16,7 +16,7 @@ public class Predictor {
     }
     public static final String NNPTrain = "nnpTrain";
     private void prepareDataset() {
-        Dataset.load("GsmTable", "", NNPTrain);
+        Dataset.load("GsmTable", NNPTrain);
         Table table = Dataset.getTable(NNPTrain);
         Iterator<Integer> keys = table.getTable().keySet().iterator();
         GsmTrack previous = (GsmTrack)table.getRow((Integer)keys.next());
