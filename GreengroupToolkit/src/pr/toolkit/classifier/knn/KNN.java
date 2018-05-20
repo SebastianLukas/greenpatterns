@@ -76,11 +76,11 @@ public class KNN {
     }
 
 
-    private Map<Integer, SingleClassClassificationStatistics> evaluateClassificationAccuracy(ArrayList<Classification> classification) {
-        Map<Integer, SingleClassClassificationStatistics> evaluation = new HashMap<Integer, SingleClassClassificationStatistics>();
-        for(int i = 0; i < labels.getSize(); i++) {
-            Integer label = ((Label)labels.getRow(new Integer(i+1))).getLabel();
-            SingleClassClassificationStatistics cs = new SingleClassClassificationStatistics(label);
+    private Map<Integer, Result> evaluateClassificationAccuracy(ArrayList<Classification> classification) {
+        Map<Integer, Result> evaluation = new HashMap<Integer, Result>();
+        for(int i = 1; i <= labels.getSize(); i++) {
+            Integer label = ((Label)labels.getRow(i)).getLabel();
+            Result cs = new Result(label);
             if(!evaluation.containsKey(label))
                 evaluation.put(label, cs);
         }
@@ -92,7 +92,7 @@ public class KNN {
                 if(c.correct()) {
                     correct = true;
                 }
-                SingleClassClassificationStatistics cs = evaluation.get(c.getTrueLabel());
+                Result cs = evaluation.get(c.getTrueLabel());
                 cs.countResult(correct);
             }
         }
@@ -106,14 +106,15 @@ public class KNN {
             DistanceMeasurement d = neighbours.get(i);
             if(labelCount.containsKey(d.getTrainingLabel())) {
                 int tot = labelCount.get(d.getTrainingLabel())+ 1;
+                /*
                 //if(tot >= i/2) {
                 if(tot >= k/2) {
                     majorityLabel = d.getTrainingLabel();
                     break;
-                }
-                else {
+                }*/
+                //else {
                     labelCount.put(d.getTrainingLabel(), tot);
-                }
+                //}
             } else {
                 majorityLabel = d.getTrainingLabel();
                 labelCount.put(d.getTrainingLabel(), 1);

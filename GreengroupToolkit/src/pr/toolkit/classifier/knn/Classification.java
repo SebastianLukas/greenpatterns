@@ -5,7 +5,7 @@ package pr.toolkit.classifier.knn;
  */
 public class Classification {
     private int id;
-    private int realLabel;
+    private int trueLabel;
     private int classifiedLabel;
 
     public int getId() {
@@ -13,20 +13,20 @@ public class Classification {
     }
 
     public int getTrueLabel() {
-        return realLabel;
+        return trueLabel;
     }
 
     public int getClassifiedLabel() {
         return classifiedLabel;
     }
 
-    public Classification(int id, int realLabel, int classifiedLabel) {
+    public Classification(int id, int trueLabel, int classifiedLabel) {
         this.id = id;
-        this.realLabel = realLabel;
+        this.trueLabel = trueLabel;
         this.classifiedLabel = classifiedLabel;
     }
 
     public boolean correct() {
-        return realLabel == classifiedLabel;
+        return  trueLabel == classifiedLabel;
     }
 }

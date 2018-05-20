@@ -33,7 +33,8 @@ public class Classifier {
         Unzip the archive `Sources.zip`, integrate the whole framework in an IDE (e.g. Eclipse) and build the project.
 
         #### STEP 2:
-        Define a properties file in order to define the parameters of your graph matching task. In the folder `properties` you find three examples of such properties (for more details on these parameters we refer to our paper:
+        Define a properties file in order to define the parameters of your graph matching task.
+         In the folder `properties` you find three examples of such properties (for more details on these parameters we refer to our paper:
 
         K. Riesen, S. Emmenegger and H. Bunke.
         A Novel Software Toolkit for Graph Edit Distance Computation.. In W.G. Kropatsch et al.,
@@ -62,7 +63,6 @@ public class Classifier {
             LabeledMoleculeTable test = new LabeledMoleculeTable();
             Dataset.setTable("test", test.importCSV(new File("./././data/molecules/valid.txt")));
             LabelTable labels = new LabelTable();
-
             //todo cleanup this later , only classes for reporting
             Dataset.setTable("labels", labels.importCSV(new File("./././data/molecules/valid.txt"), " ", 1,  1));
             KNN knn = new KNN("train", "test", "labels" );
@@ -74,26 +74,27 @@ public class Classifier {
             Table trainingData = Dataset.getTable("train");
             Table testData = Dataset.getTable("test");
 
-            for(int col = 0; col < d[0].length; col++) {
+            for(int col = 1; col <= d[0].length; col++) {
                 List<DistanceMeasurement> testToTrainDistances = new ArrayList<>();
-                LabeledMolecule testGraph = (LabeledMolecule)testData.getRow(col+1);
+                LabeledMolecule testGraph = (LabeledMolecule)testData.getRow(col);
                 int testLabel = testGraph.getLabel();
-                for(int row = 0; row < d.length; row++) {
-                    //test id, train id, distance, train label, test label
-                    LabeledMolecule trainGraph = (LabeledMolecule)trainingData.getRow(row+1);
+                for(int row = 1; row <= d.length; row++) {
+                    LabeledMolecule trainGraph = (LabeledMolecule)trainingData.getRow(row);
                     int trainLabel = trainGraph.getLabel();
                     testToTrainDistances.add(new DistanceMeasurement(
-                            col+1,
-                            row+1,
-                            (float)d[row][col],
-                            trainLabel,
-                            testLabel));
+                            col,
+                            row,
+                            (float)d[row-1][col-1],
+                            testLabel,
+                            trainLabel));
                 }
                 Collections.sort(testToTrainDistances, new DistanceComparatorAsc());
-                //List<DistanceMeasurement> sublist = ggd.subList(0, 15);
-                //distances.add(sublist);
+                testToTrainDistances = testToTrainDistances.subList(0, 15);
                 distances.add(testToTrainDistances);
             }
+
+            //
+
             knn.run(5, distances, -1);
             knn.showReport();
         } catch (Exception e) {
