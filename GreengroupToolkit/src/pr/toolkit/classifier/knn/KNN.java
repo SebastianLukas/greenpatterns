@@ -35,11 +35,12 @@ public class KNN {
     public final static int MANHATTAN_DISTANCE = 2;
 
     public KNN(String trainingDatasetName, String testingDatasetName, String labelDatasetName) {
-        this.trainingData = Dataset.getTable("training");
-        this.testData = Dataset.getTable("test");
-        this.labels = Dataset.getTable("labels");
+        this.trainingData = Dataset.getTable(trainingDatasetName);
+        this.testData = Dataset.getTable(testingDatasetName);
+        this.labels = Dataset.getTable(labelDatasetName);
     }
 
+    /*
     public void run(int k, int distanceMetric) {
         switch (distanceMetric) {
             case EUCLIDEAN_DISTANCE :
@@ -58,6 +59,7 @@ public class KNN {
                 break;
         }
     }
+    */
 
     public void run(int k, ArrayList<List<DistanceMeasurement>> distances, int distanceMetric) {
         this.classification = new ArrayList<Classification>();
@@ -65,8 +67,8 @@ public class KNN {
         while(iter.hasNext()) {
             List<DistanceMeasurement> neighbours = iter.next();
             int majorityLabel = KNNClassify(k, neighbours);
-            int id = neighbours.get(0).getInstance1Id();
-            int trueLabel = neighbours.get(0).getInstance1TestDataLabel();
+            int id = neighbours.get(0).getTestId();
+            int trueLabel = neighbours.get(0).getTestLabel();
             this.classification.add(new Classification(id, trueLabel, majorityLabel));
         }
         if(report == null) report = new KNNReport();
@@ -79,7 +81,8 @@ public class KNN {
         for(int i = 0; i < labels.getSize(); i++) {
             Integer label = ((Label)labels.getRow(new Integer(i+1))).getLabel();
             SingleClassClassificationStatistics cs = new SingleClassClassificationStatistics(label);
-            evaluation.put(label, cs);
+            if(!evaluation.containsKey(label))
+                evaluation.put(label, cs);
         }
 
         for(int i = 0; i < classification.size(); i++) {
@@ -90,7 +93,7 @@ public class KNN {
                     correct = true;
                 }
                 SingleClassClassificationStatistics cs = evaluation.get(c.getTrueLabel());
-                cs.classificationResult(correct);
+                cs.countResult(correct);
             }
         }
         return evaluation;
@@ -101,16 +104,19 @@ public class KNN {
         Map<Integer, Integer> labelCount = new HashMap<Integer, Integer>();
         for(int i = 0; i < k; i++) {
             DistanceMeasurement d = neighbours.get(i);
-            if(labelCount.containsKey(d.getInstance2TrainingDataLabel())) {
-                int tot = labelCount.get(d.getInstance2TrainingDataLabel())+ 1;
-                if(tot >= i/2) {
-                    majorityLabel = d.getInstance2TrainingDataLabel();
+            if(labelCount.containsKey(d.getTrainingLabel())) {
+                int tot = labelCount.get(d.getTrainingLabel())+ 1;
+                //if(tot >= i/2) {
+                if(tot >= k/2) {
+                    majorityLabel = d.getTrainingLabel();
                     break;
                 }
-                else { labelCount.put(d.getInstance2TrainingDataLabel(), tot); }
+                else {
+                    labelCount.put(d.getTrainingLabel(), tot);
+                }
             } else {
-                majorityLabel = d.getInstance2TrainingDataLabel();
-                labelCount.put(d.getInstance2TrainingDataLabel(), 1);
+                majorityLabel = d.getTrainingLabel();
+                labelCount.put(d.getTrainingLabel(), 1);
             }
         }
         return majorityLabel;

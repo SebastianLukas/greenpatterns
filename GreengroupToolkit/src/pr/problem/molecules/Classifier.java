@@ -62,29 +62,37 @@ public class Classifier {
             LabeledMoleculeTable test = new LabeledMoleculeTable();
             Dataset.setTable("test", test.importCSV(new File("./././data/molecules/valid.txt")));
             LabelTable labels = new LabelTable();
-            //todo cleanup
+
+            //todo cleanup this later , only classes for reporting
             Dataset.setTable("labels", labels.importCSV(new File("./././data/molecules/valid.txt"), " ", 1,  1));
             KNN knn = new KNN("train", "test", "labels" );
 
             ArrayList<List<DistanceMeasurement>> distances = new ArrayList<>();
 
-            //d sources (train)
-            //d[0] target (validation - test instances to classify)
+            //d source graphs (train)
+            //d[0] target graphs (validation - test instances to classify)
             Table trainingData = Dataset.getTable("train");
             Table testData = Dataset.getTable("test");
-            for(int j = 0; j < d.length; ++j) {
-                List<DistanceMeasurement> ggd = new ArrayList<>();
-                for(int i = 0; i < d[0].length; ++i) {
+
+            for(int col = 0; col < d[0].length; col++) {
+                List<DistanceMeasurement> testToTrainDistances = new ArrayList<>();
+                LabeledMolecule testGraph = (LabeledMolecule)testData.getRow(col+1);
+                int testLabel = testGraph.getLabel();
+                for(int row = 0; row < d.length; row++) {
                     //test id, train id, distance, train label, test label
-                    int trainLabel = ((LabeledMolecule)trainingData.getRow(j+1)).getLabel();
-                    int testLabel = ((LabeledMolecule)testData.getRow(i+1)).getLabel();
-                    ggd.add(new DistanceMeasurement(i, j, (float)d[j][i],
+                    LabeledMolecule trainGraph = (LabeledMolecule)trainingData.getRow(row+1);
+                    int trainLabel = trainGraph.getLabel();
+                    testToTrainDistances.add(new DistanceMeasurement(
+                            col+1,
+                            row+1,
+                            (float)d[row][col],
                             trainLabel,
                             testLabel));
                 }
-                Collections.sort(ggd, new DistanceComparatorAsc());
-                List<DistanceMeasurement> sublist = ggd.subList(0, 15);
-                distances.add(sublist);
+                Collections.sort(testToTrainDistances, new DistanceComparatorAsc());
+                //List<DistanceMeasurement> sublist = ggd.subList(0, 15);
+                //distances.add(sublist);
+                distances.add(testToTrainDistances);
             }
             knn.run(5, distances, -1);
             knn.showReport();

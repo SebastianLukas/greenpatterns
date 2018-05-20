@@ -23,9 +23,10 @@ public class SingleClassClassificationStatistics {
         return total;
     }
 
-    public void classificationResult(boolean correct) {
+    public void countResult(boolean correct) {
         this.total+=1;
-        if(correct) this.correctClassificationsCount += 1;
+        if(correct)
+            this.correctClassificationsCount += 1;
     }
 
     public double getLabelClassificationAccuracy() {
