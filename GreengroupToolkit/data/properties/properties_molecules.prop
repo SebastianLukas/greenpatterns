@@ -37,11 +37,12 @@ edge=3.0
 #########################################################################################
 # 	number of node attributes and the individual names of these attributes		#
 #########################################################################################
-numOfNodeAttr=2
-nodeAttr0=chem
-nodeAttr1=charge
+numOfNodeAttr=1
+#numOfNodeAttr=2
+#nodeAttr0=chem
+#nodeAttr1=charge
 #numOfNodeAttr=5
-#nodeAttr0=symbol
+nodeAttr0=symbol
 #nodeAttr1=chem
 #nodeAttr2=charge
 #nodeAttr3=x
@@ -56,15 +57,8 @@ nodeAttr1=charge
 #########################################################################################
 nodeCostType0=discrete
 nodeCostType1=absolute
-#nodeCostType0=
-#nodeCostType1=
-#nodeCostType2=
-#nodeCostType3=
-#nodeCostType4=
-
 nodeCostMu0=0
 nodeCostNu0=2
-
 
 #########################################################################################
 # 	weighting parameters per individual node attribute 				#
@@ -92,7 +86,8 @@ undirected=1
 #########################################################################################
 # 	number of edge attributes and the individual names of these attributes		#
 #########################################################################################
-numOfEdgeAttr=1
+numOfEdgeAttr=0
+#numOfEdgeAttr=1
 edgeAttr0=valence
 
 
