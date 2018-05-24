@@ -12,7 +12,7 @@ public  class DistanceMeasurement implements Model<Float> {
     private int testLabel;
     private int trainingLabel;
 
-    public DistanceMeasurement(int testInstanceId, int trainInstanceId, float distance, int  testLabel, int trainLabel) {
+    public DistanceMeasurement(int testInstanceId, int trainInstanceId, float distance, int testLabel, int trainLabel) {
         this.testId = testInstanceId;
         this.trainId = trainInstanceId;
         this.distance = distance;

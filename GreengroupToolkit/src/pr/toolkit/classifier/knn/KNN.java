@@ -9,6 +9,7 @@ import pr.util.measures.*;
 import pr.util.measures.functions.EuclideanDistance;
 import pr.util.measures.functions.ManhattanDistance;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
@@ -40,7 +41,7 @@ public class KNN {
         this.labels = Dataset.getTable(labelDatasetName);
     }
 
-    /*
+
     public void run(int k, int distanceMetric) {
         switch (distanceMetric) {
             case EUCLIDEAN_DISTANCE :
@@ -48,20 +49,20 @@ public class KNN {
                 if(this.euclideanDistances == null || this.euclideanDistances.isEmpty()) {
                     this.computeDistances(EUCLIDEAN_DISTANCE, false);
                 }
-                run(k, this.euclideanDistances, EUCLIDEAN_DISTANCE);
+                run(k, this.euclideanDistances, EUCLIDEAN_DISTANCE, true);
                 break;
             case MANHATTAN_DISTANCE :
                 System.out.println("Run "+k+"NN on manhattan distances");
                 if(this.manhattanDistances == null || this.manhattanDistances.isEmpty()) {
                     this.computeDistances(MANHATTAN_DISTANCE, false);
                 }
-                run(k, this.manhattanDistances, MANHATTAN_DISTANCE);
+                run(k, this.manhattanDistances, MANHATTAN_DISTANCE,true );
                 break;
         }
     }
-    */
 
-    public void run(int k, ArrayList<List<DistanceMeasurement>> distances, int distanceMetric) {
+
+    public void run(int k, ArrayList<List<DistanceMeasurement>> distances, int distanceMetric, boolean labeledTestData) {
         this.classification = new ArrayList<Classification>();
         Iterator<List<DistanceMeasurement>> iter = distances.iterator();
         while(iter.hasNext()) {
@@ -71,8 +72,27 @@ public class KNN {
             int trueLabel = neighbours.get(0).getTestLabel();
             this.classification.add(new Classification(id, trueLabel, majorityLabel));
         }
-        if(report == null) report = new KNNReport();
-        report.addReport(k, evaluateClassificationAccuracy(this.classification), distanceMetric);
+
+        if(labeledTestData) {
+            if(report == null) report = new KNNReport();
+            report.addReport(k, evaluateClassificationAccuracy(this.classification), distanceMetric);
+        } else {
+            File file = null;
+            try {
+                file = new File("./././data/molecules/formatted_results.txt");
+                FileWriter writer = new FileWriter(file);
+                BufferedWriter bwriter = new BufferedWriter(writer);
+                for (Classification c : this.classification
+                        ) {
+                    bwriter.write(c.getId() + ", " + c.getClassifiedLabel());
+                    bwriter.newLine();
+                }
+                bwriter.flush();
+                bwriter.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

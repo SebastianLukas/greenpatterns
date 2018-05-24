@@ -19,7 +19,7 @@ public class Dataset {
     private static HashMap<String, Table> tables = new HashMap<String, Table>();
 
     public static void load(String path, String name) {
-        tables.put(name, new LabeledImageTable().importCSV(new File(path)));
+        tables.put(name, new LabeledImageTable().importCSV(new File(path), true));
     }
 
     /**

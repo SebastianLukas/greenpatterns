@@ -56,7 +56,7 @@ public class Table<T> {
         return this.table.size();
     }
 
-    public Table<T> importCSV(File csvFile) { return null; }
+    public Table<T> importCSV(File csvFile, boolean hasLabel) { return null; }
 
     public void store(String name) {
         File file = new File("./././data/"+name+".csv");

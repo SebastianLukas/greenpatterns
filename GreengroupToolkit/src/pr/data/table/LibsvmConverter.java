@@ -31,7 +31,7 @@ public class LibsvmConverter
             lines.add(line.toString());
         }
         try {
-            file = new File("./././data/libsvm.mnist." + name + ".txt");
+            file = new File("./././data/svm/libsvm.mnist." + name + ".txt");
             FileWriter writer = new FileWriter(file);
             BufferedWriter bwriter = new BufferedWriter(writer);
             for (String line: lines
@@ -39,8 +39,8 @@ public class LibsvmConverter
                 bwriter.write(line);
                 bwriter.newLine();
             }
-            writer.flush();
-            writer.close();
+            bwriter.flush();
+            bwriter.close();
         } catch (Exception e) {
            e.printStackTrace();
         }

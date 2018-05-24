@@ -107,14 +107,14 @@ public class CustomGraphMatching extends GraphMatching {
 
     private String adj; // best or worst or none
 
-    private XMLParser xmlParser = null;
+    private CustomXMLParser xmlParser = null;
 
 
     /**
      * the matching procedure
      * @throws Exception
      */
-    public CustomGraphMatching(String prop, XMLParser parser) throws Exception {
+    public CustomGraphMatching(String prop, CustomXMLParser parser) throws Exception {
         // initialize the matching
         System.out.println("Init from properties...");
         this.xmlParser = parser;
@@ -392,11 +392,12 @@ public class CustomGraphMatching extends GraphMatching {
 
         // load the source and target set of graphs
         //XMLParser xmlParser = new XMLParser();
-        xmlParser.setGraphPath(properties.getProperty("path"));
+        xmlParser.setSourceGraphPath(properties.getProperty("path"));
+        xmlParser.setTargetGraphPath(properties.getProperty("targetpath"));
         String sourceString = properties.getProperty("source");
         String targetString = properties.getProperty("target");
-        this.source = xmlParser.parseCXL(sourceString);
-        this.target = xmlParser.parseCXL(targetString);
+        this.source = xmlParser.parseSourceCXL(sourceString);
+        this.target = xmlParser.parseTargetCXL(targetString);
 
         // create a distance matrix to store the resulting dissimilarities
         this.r = this.source.size();

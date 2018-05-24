@@ -14,7 +14,7 @@ public class Predictor {
 
     public void run() {
         try {
-            svm_predict.main(new String[] {testInstancesFile.getPath(), modelFile.getPath(), "./././data/result.txt"});
+            svm_predict.main(new String[] {testInstancesFile.getPath(), modelFile.getPath(), "./././data/svm/result.txt"});
         } catch (Exception e) {}
     }
 }

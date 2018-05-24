@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class LabeledImageTable extends Table<LabeledImage> {
 
-    public Table<LabeledImage> importCSV(File csvFile) {
+    public Table<LabeledImage> importCSV(File csvFile, boolean hasLabel) {
         String separator = ",";
         Table<LabeledImage> images = new Table<LabeledImage>();
         Scanner inputStream;
@@ -20,9 +20,14 @@ public class LabeledImageTable extends Table<LabeledImage> {
             while(inputStream.hasNext()){
                 String line= inputStream.next();
                 String[] values = line.split(separator);
-                double[] array = new double[values.length-1];
-                int label = Integer.parseInt(values[0]);
-                for(int i = 1; i < values.length-1; i++) {
+                int label = -1;
+                int startIndex = 0;
+                if(hasLabel) {
+                    startIndex = 1;
+                    label = Integer.parseInt(values[0]);
+                }
+                double[] array = new double[values.length-startIndex];
+                for(int i = startIndex; i < values.length - startIndex; i++) {
                     array[i] = Integer.parseInt(values[i]);
                 }
                 images.addRow(new LabeledImage(label, array));

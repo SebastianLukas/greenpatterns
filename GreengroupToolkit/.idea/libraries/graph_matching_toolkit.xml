@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="graph-matching-toolkit">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/pr/toolkit/graph-matching-toolkit-master/graph-matching-toolkit.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
