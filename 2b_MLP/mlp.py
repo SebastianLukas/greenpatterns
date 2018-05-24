@@ -27,10 +27,14 @@ test = pd.read_csv('./test.csv', dtype=int)
 X_test = test.ix[:, 1:].values.astype('float32') 
 Y_test = test.ix[:, 0]
 
+# Load unllabled set
+to_predict = pd.read_csv('./mnist_test.csv', delimiter=',', dtype='float32')
+
 
 # Rescale data to [0,1]
 X_train /= 255.0
 X_test /= 255.0
+to_predict /= 255.0
 
 # Define parameters for GridSearchCV
 params = [{'learning_rate_init': np.linspace(0.1,1,2), 
@@ -127,3 +131,11 @@ plt.show()
 print("optimal number of neurons: " + str(best_num_neur))
 print("optimal learning rate: " + str(best_learn_rate))
 print("best random init state" + str(best_rndm))
+
+if __name__ == '__main__':
+	print("Create Classifier")
+	mlp = MLPClassifier(activation='relu', solver='sgd',random_state=17,max_iter=200, learning_rate_init=0.2, learning_rate='constant', tol=0.00001)
+	mlp.fit(train, train_labels)
+	preds = mlp.predict(to_predict)
+	print(preds)
+
