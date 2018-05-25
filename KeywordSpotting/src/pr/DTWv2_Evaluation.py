@@ -1,6 +1,7 @@
 import numpy as np
 import mlpy
 import os
+from collections import OrderedDict
 from PIL import Image
 
 #IMG_PATH = "data/better_cropped_bw_image/"
@@ -49,9 +50,9 @@ def calculateTestFeatures():
     dict = {}
     print "Start calculating features"
     for filename in os.listdir(IMG_PATH):
-        #if (int(filename[0:3]) >= 300):
-        img = Image.open(IMG_PATH + filename)
-        dict[filename] = extractFeatures(np.asarray(img))
+        if (int(filename[0:3]) >= 305):
+            img = Image.open(IMG_PATH + filename)
+            dict[filename] = extractFeatures(np.asarray(img))
 
     print "End calculating features"
     return dict
@@ -94,8 +95,7 @@ def keywordSpotter(topN):
         distDict = {}
         totalWords = 0
         for filename in os.listdir(IMG_PATH):
-            #if (int(filename[0:3]) >= 300):
-            if (int(filename[0:3]) >= 200): #take all
+            if (int(filename[0:3]) >= 305):
                 totalWords += 1
                 y = featureDict[filename]
                 dist, cost, path = mlpy.dtw_std(x, y, dist_only=False)
@@ -109,6 +109,7 @@ def keywordSpotter(topN):
                         distDict[filename[0:9]] = dist
 
         # print distDict
+        distDict = OrderedDict(sorted(distDict.items(), key=lambda x: x[1]))
         evaluation(distDict, totalWords, k)
 
 
@@ -117,7 +118,7 @@ def getTrainSample(keyword):
     words = f.readlines()
     f.close()
     for w in words:
-        if w[10:].lower() == keyword.lower():# and int(w[0:3]) < 300:
+        if w[10:].lower() == keyword.lower() and int(w[0:3]) < 305:
             # print w
             return w[0:9]
 
@@ -128,7 +129,7 @@ def getTestSamples(keyword):
     words = f.readlines()
     f.close()
     for w in words:
-        if w[10:].lower() == keyword.lower():# and int(w[0:3]) >= 300:
+        if w[10:].lower() == keyword.lower() and int(w[0:3]) >= 305:
             d[w[0:9]] = keyword
     # print d
     return d
