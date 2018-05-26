@@ -2,7 +2,7 @@ Final evaluations on all group tasks
 
 1. Results for mnist-svm and GED+KNN - molecules are in the current folder:
 svm-mnist-predictions.txt
-molecules-predictions.txt
+molecules-predictions_v2_format_corrections.txt
 Results where produced with our implementation in GreengroupToolkit Folder
 
 2. Results for DTW evaluation here:
